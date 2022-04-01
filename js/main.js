@@ -53,7 +53,7 @@ window.addEventListener('DOMContentLoaded', function(){
     Pusher.logToConsole = true;
 
     // Add API Key & cluster here to make the connection 
-    let pusher = new Pusher('3fc1d0b71d2047519b0d', {
+    let pusher = new Pusher('c041ae0a438504593a91', {
         cluster: 'ap2',
         encrypted: true
     });

@@ -7,9 +7,9 @@
     );
     
     $pusher = new Pusher\Pusher(
-        '3fc1d0b71d2047519b0d',
-        '8af11eab968c6cbee7e0',
-        '1368367',
+        'c041ae0a438504593a91',
+        '04775ccf064b1c63f178',
+        '1367914',
         $options
     );
     
