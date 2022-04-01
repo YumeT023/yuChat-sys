@@ -31,8 +31,6 @@ window.addEventListener('DOMContentLoaded', function(){
                 message: message.value
             }, response => {
                 // callback fn
-                console.log(response);
-                // get the data from the server (response)
 
                 message.value = '';
                 message.focus();
@@ -49,8 +47,6 @@ window.addEventListener('DOMContentLoaded', function(){
     /*****************************************************
      *  pusher
      ******************************************************/
-    // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
 
     // Add API Key & cluster here to make the connection 
     let pusher = new Pusher('c041ae0a438504593a91', {
@@ -58,13 +54,15 @@ window.addEventListener('DOMContentLoaded', function(){
         encrypted: true
     });
 
-    // Enter a unique channel you wish your users to be subscribed in.
+    // unique channel where users will be subscribed in
     var channel = pusher.subscribe('yuChat-channel');
     
-    // bind the server event to get the response data and append it to the message div
+    // bind the server event to get the response data and append it to msgCompo which is all the message's container
     channel.bind('send_message_event', function(data) {
         msgCompo.innerHTML += data;
+        // paste the data from server
         msgCompo.lastChild.scrollIntoView();
+        // auto scroll to the newest message
     });
 
     // check if the user is subscribed to the above channel
