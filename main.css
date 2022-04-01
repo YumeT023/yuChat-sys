@@ -1,0 +1,174 @@
+/* ---------------------------------------------------------------------------------
+   BASIC EDIT
+ -------------------------------------------------------------------------------- */
+ /* set default spacing on every element to `0: none`*/
+* { padding: 0 ; margin: 0 ; box-sizing: border-box; }
+
+/* color set */
+:root {
+    /* dark */
+    --d0: #101010;
+    --d01: #121212;
+    --d02: #141414;
+    --d1: #151515;
+    --d1A: #171717;
+    --d2: #202020;
+    --d3: #222222;
+    --d4: #252525;
+    --d5: #282828;
+    --d6: #303030;
+    --d7: #343434;
+    --d8: #383838;
+    --d9: #424242;
+    --dA: #484848;
+    --dB: #6e6e6e;
+    
+    /* light */
+    --lf: #9c9c9c;
+    --l0: #aaaaaa;
+    --l1: #dadada;
+    --l2: #f5f5f5;
+    --l3: #e6e6e6;
+
+    /* orange */
+    --o0: #d8a52481;
+    --o1: #97741b;
+    --o2: #d8a5248f;
+    --o3: #d8a424;
+
+    /* error */
+    --err1: #a32914;
+}
+
+/* set selection bg */
+::selection { background-color: var(--o1) ; color: #cacaca }
+
+body {
+    background-color: var(--d01);
+    height: 100vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* ---------------------------------------------------------------------------------
+    MAIN LAYOUT
+ -------------------------------------------------------------------------------- */
+/* main container */
+.container {
+    background-color: var(--d0);
+    width: 50%;      
+    height: 100%;
+    margin: auto;
+}
+
+/* header */
+.container > header {
+    background-color: var(--d1A);
+    height: 15%;
+    position: relative;
+    text-align: center;
+}
+.container > header h1 {
+    user-select: none;
+    /* padding-block: 4%; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--o3);
+}
+.container > header h1 span { color: var(--l1) }
+
+/* form: message sending input */
+.container > form {
+    height: 8%;
+    padding-block: 1%;
+    position: relative;
+    padding-inline: 1%;
+    user-select: none;
+}
+.container input, .container button {
+    transition: 0.2s ease-in;
+    font-size: 15px;
+    background-color: var(--d1A);
+    color: var(--lf);
+    padding-block: 1.5%;
+    padding-inline: 1%;
+    border: none;
+    border-radius: 4px;
+}
+.container [name="name"] { width: 20% }
+.container [name="message"] { width: 70% }
+
+.container input:focus{
+    outline: 1px solid var(--o0);
+}
+
+/* button */
+.container button {
+    transition: 0.2s ease-in-out;
+    width: 8%;
+}
+.container button {
+    color: rgba(145, 145, 145, 0.8);
+    background-color: var(--o0);
+}
+.container button:focus { outline: 1px solid var(--o0) }
+
+.container .valid {
+    background-color: var(--o3);
+    color: whitesmoke;
+    cursor: pointer;
+}
+.container .valid:focus { outline: 1px solid var(--o3) }
+
+/* footer */
+.container > footer {
+    background-color: var(--d1A);
+    height: 12%;
+}
+
+/* ---------------------------------------------------------------------------------
+  main: message view
+ -------------------------------------------------------------------------------- */
+.container > main {
+    background-color: var(--d0);
+    height: 65%;
+    border-bottom: 1px solid var(--d1A);
+    overflow-y: scroll;
+    padding-inline: 1%;
+}
+
+main::-webkit-scrollbar { background-color: var(--d01) ; width: 10px }
+main::-webkit-scrollbar-thumb { background-color: var(--o0) ; border-radius: 2px; }
+main::-webkit-scrollbar-thumb:hover { background-color: var(--o2) }
+main::-webkit-scrollbar-thumb:active { background-color: var(--o1) }
+
+/* message component */
+.msgComponent {
+    width: 48%;
+    margin-block: 2%;
+    position: relative;
+    transition: 0.2s ease-in-out;
+}
+.R { margin-left: 52% }
+.R main {
+    background-color: var(--o1) !important; 
+    color: var(--l1) !important;
+}
+.msgComponent header {
+    padding-left: 1%;
+    font-size: 13px;
+    color: var(--o3);
+    margin-bottom: 1%;
+}
+.msgComponent main {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #848484;
+    background-color: var(--d1);
+    border-radius: 4px;
+    padding-block: 3.5%;
+    margin-left: 1%;
+    padding-inline: 2%;
+    line-height: 1.5em;
+    overflow-wrap: break-word;
+}

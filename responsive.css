@@ -1,0 +1,125 @@
+@import url(main.css);
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 992px) {
+    .container {
+        width: 65%;
+    }
+}
+@media screen and (max-width: 928px) {
+    .container {
+        width: 70%;
+    }
+}
+@media screen and (max-width: 868px) {
+    .container {
+        width: 75%;
+        font-size: 15px;
+    }
+    .container header {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 828px) {
+    .container {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .container {
+        width: 85%;
+    }
+}
+@media screen and (max-width: 696px) {
+    .container {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 656px) {
+    .container {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 628px) {
+    .container [name="name"] {
+        width: 10%;
+        cursor: pointer;
+    }
+    .container [name="name"]:focus {
+        width: 20%;
+        background-color: var(--d1A);
+        cursor: text;
+        color: var(--lf);
+    }
+    .container [name="name"]:focus::placeholder {
+        color: rgba(163, 160, 160, 0.652);
+    }
+
+    .container [name="name"]:focus + [name="message"] {
+        width: 60%;
+    }
+    .container button {
+        width: 15%;
+    }
+}
+@media screen and (max-width: 576px) {
+    .container {
+        font-size: 14px;
+    }
+    .container header {
+        font-size: 11px;
+    }
+    .container input {
+        padding-block: 2%;
+    }
+    .container [name="name"] {
+        width: 5%;
+        color: var(--o3);
+        background-color: var(--o3);
+    }
+    .container [name="name"]::placeholder {
+        color: var(--o3);
+    }
+    .container [name="message"] {
+        width: 75%;
+    }
+    .contaienr button {
+        width: 20%;
+    }
+}
+@media screen and (max-width: 502px) {
+    .container input, .container button {
+        padding-block: 2.5%;
+    }
+}
+@media screen and (max-width: 430px) {
+    .container {
+        font-size: 13px;
+    }
+    .container header {
+        font-size: 10px;
+    }
+    .container input, .container button {
+        padding-block: 3%;
+    }
+}
+@media screen and (max-width: 368px) {
+    .container input, .container button {
+        padding-block: 4%;
+    }
+}
+@media screen and (max-width: 255px) {
+    .container > form {
+        padding-block: 3%;
+    }
+    .msgComponent {
+        width: 60%;
+        margin-block: 8%;
+    }
+    .R {
+        margin-left: 40%;
+    }
+}
