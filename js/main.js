@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', function(){
-    // only request uses jquery/ajax
+    // only Ajax request used JQuery
     const [name, message, btn] = document.querySelector('.container form').children;
     // get all the form's input |name|message|button(send)
     const msgCompo = document.querySelector('.container main');
@@ -12,25 +12,27 @@ window.addEventListener('DOMContentLoaded', function(){
         //    if (name) contains whitespace or it's blank
         // OR if (message) is just a lot of whitespace or blank
             btn.classList.remove('valid');
-            // then remove button is not available and considered as normal input button
+            // then the button is not available and considered as normal input button (an alert box will be triggered if button is clicked)
             isValid = false;
         }else {
             btn.classList.add('valid');
-            // else it's available and considered as the form subsmission's button
+            // else it's available and considered as the form's submission button
             isValid = true;
         }
-        if (e.key == 'Enter') { btn.click() }
+        if (e.key == 'Enter') { 
+            // when any input are focused then Enter Key is considered as button click too
+            btn.click();
+        }
     }
     btn.addEventListener('click', function(){
         // on click on the (send) button
         if (isValid) {
-            // Send AJAX request to the PHP file on server 
+            // Send AJAX POST request to the server, with the given input (name, message)
             $.post('display_msg.php',
             {
                 name: name.value,
                 message: message.value
             }, response => {
-                // callback fn
 
                 message.value = '';
                 message.focus();
@@ -41,6 +43,7 @@ window.addEventListener('DOMContentLoaded', function(){
             })
         } else {
             alert(`contraint : \n\t- Name shouldn't contains whitespace\n\t- Message shouln't be just a lot of whitespace`);
+            // alert box ... if input is not validated
         }
     })
     
