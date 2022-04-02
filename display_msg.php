@@ -22,9 +22,11 @@
 
         $_POST['name'] == 'YumeT023' ? $side = 'R' : $side = '';  
         // Data will should be structured in specified tag, and removed specialchars such as '<', '<?' to avoid message to execute a script (php, js)
+        $name = htmlspecialchars($_POST['name']);
+        $message = htmlspecialchars($_POST['message']);
         $data = '<div class="msgComponent ' . $side . '">
-                    <header>' . htmlspecialchars($_POST['name']) . '</header>
-                    <main>' . htmlspecialchars($_POST['message']) . '</main>
+                    <header>' . $name . '</header>
+                    <main>' . $message . '</main>
                 </div>';
 
     
