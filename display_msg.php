@@ -23,13 +23,13 @@
         $_POST['name'] == 'YumeT023' ? $side = 'R' : $side = '';  
         // Data will should be structured in specified tag, and removed specialchars such as '<', '<?' to avoid message to execute a script (php, js)
         $data = '<div class="msgComponent ' . $side . '">
-                    <header>' . htmlspecialchars($_POST['name']) . '</header>
-                    <main>' . htmlspecialchars($_POST['message']) . '</main>
+                    <header>' . strip_tags($_POST['name']) . '</header>
+                    <main>' . strip_tags($_POST['message']) . '</main>
                 </div>';
 
     
         // trigger the pusher's event & return the structured data
-        if($pusher->trigger('yuChat-channel', 'send_message_event', htmlspecialchars($data))) {
+        if($pusher->trigger('yuChat-channel', 'send_message_event', $data)) {
             echo 'success';
         } else {
             echo 'error';
