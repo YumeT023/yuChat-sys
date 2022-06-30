@@ -21,9 +21,11 @@
     if(isset($_POST['message']) AND isset($_POST['name'])) {
 
         $_POST['name'] == 'YumeT023' ? $side = 'R' : $side = '';  
-        // Data will should be structured in specified tag, and removed specialchars such as '<', '<?' to avoid a message that could execute a script for example:
-        // <script>alert('Hello world');</script>
-        /* or <?php include('...'), ?> */ 
+        /**
+         * Data shouldn't contains any special tag that would be dangerous such as '<' and '>' that may trigger a script
+         * e.g: <script>alert('dangerous script')</script>, <?php include('...'); ?>
+         */
+        
         $data = '<div class="msgComponent ' . $side . '">
                     <header>' . htmlspecialchars($_POST['name']) . '</header>
                     <main>' . htmlspecialchars($_POST['message']) . '</main>
